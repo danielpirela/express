@@ -33,11 +33,7 @@ class ProductServices {
   }
 
   find() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(this.products)
-      }, 5000)
-    })
+    return this.products
   }
 
   async findOne(id, isBlock) {

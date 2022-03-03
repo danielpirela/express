@@ -3,7 +3,7 @@ const routerAPI = require('./routes')
 const cors = require('cors')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 const {
   logErrors,
@@ -14,7 +14,11 @@ const {
 // ! settigns
 app.use(express.json())
 
-const whitelist = ['http://localhost:8080', 'http://127.0.0.1:5500']
+const whitelist = [
+  'http://localhost:3000',
+  'http://localhost:8080',
+  'http://127.0.0.1:5500',
+]
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
